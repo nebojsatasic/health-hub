@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # PHP and Apache service
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile  # This will build from the Dockerfile
+    container_name: health-hub-app
+    ports:
+      - "81:80"  # Expose port 80 to port 81 on the host
+    volumes:
+      - ./src:/var/www/html  # Mount the app code to the container
+    depends_on:
+      - db
+
+  # MySQL database service
+  db:
+    image: mysql:5.7
+    container_name: health-hub-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # This will be changed in production
+      MYSQL_DATABASE: health_hub  # This will be changed in production
+      MYSQL_USER: user  # This will be changed in production
+      MYSQL_PASSWORD: userpassword  # This will be changed in production
+    volumes:
+      - db-data:/var/lib/mysql  # Persist MySQL data
+
+  # phpMyAdmin service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: health-hub-phpmyadmin
+    environment:
+      PMA_HOST: db  # Name of the MySQL service
+      PMA_USER: user  # The user for phpMyAdmin to connect
+      PMA_PASSWORD: password  # Password for the user
+    ports:
+      - "3307:80"  # Expose port 80 of phpMyAdmin to port 3307 on the host
+    depends_on:
+      - db
+
+volumes:
+  db-data:  # Persistent volume for MySQL data
