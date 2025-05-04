@@ -2,7 +2,7 @@
 
 This website is designed to provide users with reliable and up-to-date information on wellness, nutrition, fitness, and medical conditions. The blog aims to promote a healthier lifestyle by offering easy access to informative articles that help individuals stay informed and make better health decisions.
 
-The website is built using the PHP MVC (Model-View-Controller) architecture, following an object-oriented programming (OOP) approach. By leveraging the MVC pattern, the project ensures a clean separation of concerns, making it scalable, maintainable, and easy to manage. Additionally, the use of OOP principles fosters code reusability, modularity, and enhanced project efficiency.
+The website is built using the PHP MVC (Model-View-Controller) architecture, following an object-oriented programming (OOP) approach. By leveraging the MVC pattern, the project ensures a clean separation of concerns, making it flexible and extendable, as well as maintainable and easy to manage. Additionally, the use of OOP principles fosters code reusability, modularity, and enhanced project efficiency.
 
 ## Features
 
